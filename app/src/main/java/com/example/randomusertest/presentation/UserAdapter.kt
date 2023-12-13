@@ -10,7 +10,7 @@ import com.example.randomusertest.R
 import com.example.randomusertest.databinding.UserItemListBinding
 import com.example.randomusertest.domain.User
 
-class UserAdapter(private var users: List<User>) : PagingDataAdapter<User, UserAdapter.UserViewHolder>(USER_COMPARATOR) {
+class UserAdapter(private var users: List<User>) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding = UserItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -42,18 +42,6 @@ class UserAdapter(private var users: List<User>) : PagingDataAdapter<User, UserA
                 Glide.with(arrow.context)
                     .load(R.drawable.small)
                     .into(arrow)
-            }
-        }
-    }
-
-    companion object {
-        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<User>() {
-            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem.email == newItem.email
-            }
-
-            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem == newItem
             }
         }
     }
