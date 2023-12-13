@@ -6,5 +6,6 @@
     <string name="user_gender">Gender</string>
     <string name="user_phone_number">Phone Number</string>
     <string name="user_address">Address</string>
+    <string name="user_registered_date">Registered date</string>
     <string name="users_full_names" translatable="false">%1$s %2$s %3$s</string>
 </resources>

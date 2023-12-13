@@ -10,11 +10,14 @@ import com.example.randomusertest.R
 import com.example.randomusertest.databinding.UserItemListBinding
 import com.example.randomusertest.domain.User
 
-class UserAdapter(private var users: List<User>) : PagingDataAdapter<User, UserAdapter.UserViewHolder>(USER_COMPARATOR) {
+class UserAdapter(
+    private var users: List<User>,
+    private val onUserCLick: (User) -> Unit
+) : RecyclerView.Adapter<UserAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val binding = UserItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return UserViewHolder(binding)
+        return UserViewHolder(binding, onUserCLick)
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
@@ -25,11 +28,16 @@ class UserAdapter(private var users: List<User>) : PagingDataAdapter<User, UserA
     override fun getItemCount(): Int = users.size
 
     fun updateData(newUsers: List<User>) {
-        users = newUsers
+        val currentList = users.toMutableList()
+        currentList.addAll(newUsers)
+        users = currentList
         notifyDataSetChanged()
     }
 
-    class UserViewHolder(private val binding: UserItemListBinding) : RecyclerView.ViewHolder(binding.root) {
+    class UserViewHolder(
+        private val binding: UserItemListBinding,
+        val onUserClick: (User) -> Unit
+    ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: User) {
             with(binding) {
@@ -42,18 +50,9 @@ class UserAdapter(private var users: List<User>) : PagingDataAdapter<User, UserA
                 Glide.with(arrow.context)
                     .load(R.drawable.small)
                     .into(arrow)
-            }
-        }
-    }
-
-    companion object {
-        private val USER_COMPARATOR = object : DiffUtil.ItemCallback<User>() {
-            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem.email == newItem.email
-            }
-
-            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
-                return oldItem == newItem
+                root.setOnClickListener {
+                    onUserClick(user)
+                }
             }
         }
     }

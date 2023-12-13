@@ -7,8 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.randomusertest.R
 import com.example.randomusertest.databinding.FragmentUserListBinding
+import com.example.randomusertest.domain.User
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -18,7 +20,9 @@ class UserListFragment : Fragment() {
 
     private val viewModel: UserListViewModel by viewModels()
 
-    private val adapter = UserAdapter(emptyList())
+    private val adapter = UserAdapter(emptyList()) { user ->
+        onUserClick(user)
+    }
 
     companion object {
 
@@ -43,6 +47,30 @@ class UserListFragment : Fragment() {
         viewModel.users.observe(viewLifecycleOwner) { users ->
             adapter.updateData(users)
         }
+        viewModel.isLoading.observe(viewLifecycleOwner) { isLoading ->
+            binding?.progressBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
+        }
+
+        binding?.userList?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+                if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    viewModel.nextPage()
+                }
+            }
+        })
     }
 
+    private fun onUserClick(user: User) {
+        val bundle = Bundle()
+        bundle.putParcelable("user", user)
+
+        val fragment = UserDetailFragment.newInstance()
+        fragment.arguments = bundle
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .replace(R.id.userList_fragment_container, fragment)
+            .addToBackStack("UserListFragment")
+            .commit()
+    }
 }

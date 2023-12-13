@@ -22,6 +22,9 @@ class UserListViewModel @Inject constructor (
     private val _currentPage = MutableLiveData<Int>()
     val currentPage: LiveData<Int> = _currentPage
 
+    private val _isLoading = MutableLiveData<Boolean>()
+    val isLoading: LiveData<Boolean> = _isLoading
+
     init {
         _currentPage.value = 1
         loadUsers()

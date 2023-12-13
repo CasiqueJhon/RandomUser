@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.UserDetailFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/backgroundImage"
+            android:layout_width="match_parent"
+            android:layout_height="198dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/user_detail_decorator" />
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_white_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/user_detail_simple_name"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/back_arrow"
+            app:layout_constraintStart_toEndOf="@+id/back_arrow"
+            app:layout_constraintTop_toTopOf="@+id/back_arrow"
+            tools:text="Laura Navarro" />
+
+        <ImageView
+            android:id="@+id/ic_submenu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_white_submenu"
+            app:layout_constraintBottom_toBottomOf="@+id/user_detail_simple_name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/user_detail_simple_name" />
+
+        <ImageView
+            android:id="@+id/userImagePicture"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toTopOf="@+id/icProfile"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:src="@drawable/ic_profile" />
+
+        <ImageView
+            android:id="@+id/icProfile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="38dp"
+            app:layout_constraintBottom_toTopOf="@+id/icEmail"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_profile" />
+
+        <TextView
+            android:id="@+id/profileTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icProfile"
+            app:layout_constraintTop_toTopOf="@+id/icProfile"
+            tools:text="Full name" />
+
+        <TextView
+            android:id="@+id/userFullName"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/icProfile"
+            app:layout_constraintTop_toBottomOf="@+id/profileTitle"
+            tools:text="Laura Navarro Martinez" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@+id/userFullName"
+            app:layout_constraintTop_toBottomOf="@+id/userFullName" />
+
+        <ImageView
+            android:id="@+id/icEmail"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="38dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/icGender"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_mail" />
+
+        <TextView
+            android:id="@+id/emailTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icEmail"
+            app:layout_constraintTop_toTopOf="@+id/icEmail"
+            tools:text="Email" />
+
+        <TextView
+            android:id="@+id/userEmail"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/icEmail"
+            app:layout_constraintTop_toBottomOf="@+id/emailTitle"
+            tools:text="lauranavarro@gmail.com" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@+id/userEmail"
+            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+
+        <ImageView
+            android:id="@+id/icGender"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="38dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/icCalendar"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_gender" />
+
+        <TextView
+            android:id="@+id/genderTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icGender"
+            app:layout_constraintTop_toTopOf="@+id/icGender"
+            tools:text="Gender" />
+
+        <TextView
+            android:id="@+id/userGender"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/icGender"
+            app:layout_constraintTop_toBottomOf="@+id/genderTitle"
+            tools:text="Woman" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@+id/userGender"
+            app:layout_constraintTop_toBottomOf="@+id/userGender" />
+
+        <ImageView
+            android:id="@+id/icCalendar"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginBottom="38dp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/icPhone"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_calendar" />
+
+        <TextView
+            android:id="@+id/registerDateTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icCalendar"
+            app:layout_constraintTop_toTopOf="@+id/icCalendar"
+            android:text="Register date" />
+
+        <TextView
+            android:id="@+id/userRegisterDate"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/icCalendar"
+            app:layout_constraintTop_toBottomOf="@+id/registerDateTitle"
+            tools:text="11/05/2018" />
+
+        <View
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@+id/userRegisterDate"
+            app:layout_constraintTop_toBottomOf="@+id/userRegisterDate" />
+
+        <ImageView
+            android:id="@+id/icPhone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="200dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_phone" />
+
+        <TextView
+            android:id="@+id/phoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/gray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@+id/icPhone"
+            app:layout_constraintTop_toTopOf="@+id/icPhone"
+            android:text="Phone number" />
+
+        <TextView
+            android:id="@+id/userPhone"
+            style="@style/TextAppearance.AppCompat.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textSize="16sp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/icPhone"
+            app:layout_constraintTop_toBottomOf="@+id/phoneTitle"
+            tools:text="+34 665587115" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="300dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@+id/userPhone"
+            app:layout_constraintTop_toBottomOf="@+id/userPhone" />
+
+        <TextView
+            android:id="@+id/addressTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            tools:text="Address" />
+
+        <ImageView
+            android:id="@+id/icCamera"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_camera"
+            app:layout_constraintEnd_toStartOf="@+id/icEdit"
+            app:layout_constraintTop_toTopOf="@+id/icEdit" />
+
+        <ImageView
+            android:id="@+id/icEdit"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/userImagePicture" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
