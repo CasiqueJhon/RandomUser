@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">RandomUserTest</string>
+    <string name="contacts">Contacts</string>
+    <string name="user_full_name">Full name</string>
+    <string name="user_email">Email</string>
+    <string name="user_gender">Gender</string>
+    <string name="user_phone_number">Phone Number</string>
+    <string name="user_address">Address</string>
+    <string name="users_full_names" translatable="false">%1$s %2$s %3$s</string>
+</resources>

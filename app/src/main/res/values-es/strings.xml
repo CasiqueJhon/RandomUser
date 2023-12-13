@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RandomUserTest</string>
+    <string name="contacts">Contactos</string>
+    <string name="user_full_name">Nombre y apellidos</string>
+    <string name="user_email">Email</string>
+    <string name="user_gender">Género</string>
+    <string name="user_phone_number">Teléfono</string>
+    <string name="user_address">Dirección</string>
+</resources>
